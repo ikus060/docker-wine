@@ -16,6 +16,7 @@ RUN set -x \
     && apt-get install --no-install-recommends -qfy gpg-agent apt-transport-https software-properties-common wget \
     && wget -nv https://dl.winehq.org/wine-builds/winehq.key \
     && apt-key add winehq.key \
+    && rm winehq.key \
     && add-apt-repository 'https://dl.winehq.org/wine-builds/ubuntu/' \
     && apt-get update -qy \
     && apt-get install --no-install-recommends -qfy $WINE_VERSION xvfb xauth cabextract winbind fonts-wine ca-certificates \
