@@ -1,4 +1,4 @@
-FROM ubuntu:19.10
+FROM buildpack-deps:buster
 
 ARG WINE_VERSION=winehq-stable
 
@@ -17,7 +17,7 @@ RUN set -x \
     && wget -nv https://dl.winehq.org/wine-builds/winehq.key \
     && apt-key add winehq.key \
     && rm winehq.key \
-    && add-apt-repository 'https://dl.winehq.org/wine-builds/ubuntu/' \
+    && add-apt-repository 'https://dl.winehq.org/wine-builds/debian/' \
     && apt-get update -qy \
     && apt-get install --no-install-recommends -qfy $WINE_VERSION xvfb xauth cabextract winbind fonts-wine ca-certificates \
     && apt-get clean \
